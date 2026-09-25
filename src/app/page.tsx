@@ -113,7 +113,8 @@ export default function Home() {
               iSuite AI உங்களுக்கு <span className="text-accent-deep">சரியானதா?</span>
             </h2>
 
-            <div className="mt-10 grid items-start gap-5 sm:mt-14 md:grid-cols-[1.1fr_1fr] md:gap-6">
+            {/* two equal cards, tops and bottoms aligned; stacked below 1024px (Tamil titles need the width) */}
+            <div className="mt-10 grid gap-5 sm:mt-14 lg:grid-cols-2 lg:gap-6">
               {/* strong fit */}
               <div className="overflow-hidden rounded-3xl border-2 border-accent bg-surface shadow-xl shadow-accent/15">
                 <div className="flex items-center gap-3 bg-accent px-6 py-4 text-on-accent">
@@ -139,7 +140,7 @@ export default function Home() {
               </div>
 
               {/* weak fit */}
-              <div className="overflow-hidden rounded-3xl border border-line bg-surface/70 md:mt-6">
+              <div className="overflow-hidden rounded-3xl border border-line bg-surface/70">
                 <div className="flex items-center gap-3 border-b border-line px-6 py-4 text-muted">
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-paper" aria-hidden>
                     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
