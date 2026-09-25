@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =====================================================================
+   COLOUR PALETTE — change the hex values here, the whole page updates.
+   ===================================================================== */
+/* Not "inline": utilities reference these as CSS variables, so the palette
+   switcher can override them at runtime. */
+@theme {
+  /* --- Brand / backgrounds --- */
+  --color-ink: #0b1b33;         /* dark background (hero, dark sections) + main heading text */
+  --color-ink-soft: #13294b;    /* lighter dark shade, used in gradients */
+  --color-paper: #f6f8fb;       /* light section background */
+  --color-surface: #ffffff;     /* page / card background */
+
+  /* --- Accent (buttons, highlights, icons) --- */
+  --color-accent: #2bd97c;      /* main accent: buttons, highlighted words, icons (bright, for dark navy) */
+  --color-accent-dark: #1fbf69; /* button hover (slightly darker accent) */
+  --color-accent-deep: #0f9d58; /* green TEXT on light/white backgrounds (bright green is hard to read there) */
+  --color-on-accent: #0b1b33;   /* text colour ON the accent (use dark text if accent is light, e.g. gold) */
+
+  /* --- Text & borders --- */
+  --color-muted: #5b6b82;       /* grey body text */
+  --color-line: #e3e8ef;        /* card borders / dividers */
+
+  /* --- WhatsApp look (keep as-is so it looks like WhatsApp) --- */
+  --color-wa-green: #25d366;    /* floating WhatsApp button */
+  --color-wa-header: #075e54;   /* chat header bar */
+  --color-wa-bg: #e5ddd5;       /* chat background */
+  --color-wa-out: #dcf8c6;      /* buyer's message bubble */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --- Fonts --- */
+  --font-sans: var(--font-noto-sans), var(--font-noto-tamil), system-ui, sans-serif;
+  /* Poppins has no Tamil glyphs, so Tamil text falls back to Noto Sans Tamil */
+  --font-display: var(--font-poppins), var(--font-noto-tamil), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h1,
+h2 {
+  font-family: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+/* ---------- Final CTA background ---------- */
+/* Phones/tablets: image anchored right so the phone + laptop stay visible,
+   with a top-to-bottom fade. Desktop: left-to-right fade, image centred. */
+.cta-bg {
+  background-image:
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-ink) 70%, transparent),
+      color-mix(in oklab, var(--color-ink) 55%, transparent) 45%,
+      var(--color-ink) 92%
+    ),
+    var(--cta-image);
+  background-size: cover;
+  background-position: 82% center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 1024px) {
+  .cta-bg {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--color-ink) 95%, transparent),
+        color-mix(in oklab, var(--color-ink) 80%, transparent),
+        color-mix(in oklab, var(--color-ink) 45%, transparent)
+      ),
+      linear-gradient(to bottom, transparent 55%, var(--color-ink)),
+      var(--cta-image);
+    background-position: center;
+  }
+}
+
+/* ---------- Animations ---------- */
+
+/* chat demo: bubbles pop in, typing dots bounce */
+@keyframes chat-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.chat-pop {
+  animation: chat-pop 0.35s ease-out both;
+}
+
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+.typing-dot {
+  display: block;
+  height: 7px;
+  width: 7px;
+  border-radius: 9999px;
+  background: var(--color-muted);
+  animation: typing-dot 1s infinite ease-in-out;
+}
+
+/* sections fade + slide up as they scroll into view (browsers without
+   scroll-driven animation support simply show them normally) */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@supports (animation-timeline: view()) {
+  .reveal-sections > section:not(:first-of-type) > * {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-pop,
+  .typing-dot,
+  .reveal-sections > section > * {
+    animation: none !important;
+  }
 }
