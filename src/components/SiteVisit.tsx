@@ -40,8 +40,7 @@ function Icon({ d, className = "h-5 w-5" }: { d: string; className?: string }) {
 
 export function SiteVisit() {
   return (
-    // border-t: follows the (also light) demo section, so a divider marks the boundary
-    <section className="border-t border-line bg-paper px-4 py-16 sm:py-20">
+    <section className="bg-paper px-4 py-16 sm:py-20">
       <div className="mx-auto max-w-5xl text-center">
         <h2 className="text-balance text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
           Goal இன்னொரு chat அல்ல.

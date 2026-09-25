@@ -8,12 +8,13 @@ import { FollowUp } from "@/components/FollowUp";
 import { Handover } from "@/components/Handover";
 import { Hero } from "@/components/Hero";
 import { ManagerVisibility } from "@/components/ManagerVisibility";
-import { MetaAds } from "@/components/MetaAds";
 import { NextStep } from "@/components/NextStep";
 import { PaletteSwitcher } from "@/components/PaletteSwitcher";
+import { Pipeline } from "@/components/Pipeline";
 import { RealProblem } from "@/components/RealProblem";
+import { Reporting } from "@/components/Reporting";
+import { SalesJourney } from "@/components/SalesJourney";
 import { SalesTeam } from "@/components/SalesTeam";
-import { SectionLabel } from "@/components/SectionLabel";
 import { SiteVisit } from "@/components/SiteVisit";
 import { Solution } from "@/components/Solution";
 import { images } from "@/images";
@@ -51,50 +52,42 @@ export default function Home() {
       <main className="reveal-sections overflow-x-clip">
         {/* TEMPORARY palette review tool — remove after final palette is chosen */}
         <PaletteSwitcher />
-        {/* TEMPORARY: every <SectionLabel /> below is a review tag — remove with SectionLabel.tsx */}
 
         {/* 1. Hook — PDF hero */}
-        <SectionLabel n={1} name="Hero" />
         <Hero />
 
         {/* 2. Pain — PDF section 2 */}
-        <SectionLabel n={2} name="The Real Problem" />
         <RealProblem />
 
-        {/* 3. Solution — PDF section 3 */}
-        <SectionLabel n={3} name="Every Enquiry Gets a Next Step" />
+        {/* 3. The structured journey — revised doc section 5 */}
+        <SalesJourney />
+
+        {/* 4. Solution — revised doc section 6 */}
         <NextStep />
 
-        {/* 4. Proof — PDF demo heading + chat demo */}
-        <SectionLabel n={4} name="Demo (chat)" />
+        {/* 5. Proof — revised doc section 21 (demo flow) + chat demo */}
         <Solution />
 
-        {/* 5–7. The buyer's journey, in order — PDF sections 8, 9, 10 */}
-        <SectionLabel n={5} name="Site Visit" />
+        {/* 6–8. The buyer's journey, in order — PDF sections 8, 9, 10 */}
         <SiteVisit />
 
-        <SectionLabel n={6} name="Salesperson Handover" />
         <Handover />
 
-        <SectionLabel n={7} name="Follow-up" />
         <FollowUp />
 
-        {/* 8. Objection: "will it replace my team?" — PDF section 11 */}
-        <SectionLabel n={8} name="Sales Team" />
+        {/* 9. Objection: "will it replace my team?" — PDF section 11 */}
         <SalesTeam />
 
-        {/* 9–10. Owner / manager view — PDF sections 12, 5 */}
-        <SectionLabel n={9} name="Manager Visibility" />
+        {/* 10–12. Owner / manager view — PDF 12, revised doc 14, 15 */}
         <ManagerVisibility />
 
-        <SectionLabel n={10} name="Meta Ads" />
-        <MetaAds />
+        <Pipeline />
 
-        {/* 11–12. Objections: "just a chatbot/CRM?" and "will the AI say something wrong?" — PDF 18, 14 */}
-        <SectionLabel n={11} name="Differentiation" />
+        <Reporting />
+
+        {/* 13–14. Objections: "just a CRM/chatbot?" and "will the AI say something wrong?" — revised doc 18, PDF 14 */}
         <Differentiation />
 
-        <SectionLabel n={12} name="Trust — AI Safety" />
         <section className="bg-ink px-4 py-16 text-white sm:py-24">
           <div className="mx-auto max-w-4xl text-center">
             {/* fluid size on phones so the longest unbroken phrase still fits a 320px screen */}
@@ -128,11 +121,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 13–14. Qualification + self-recognition — PDF 16, 17 */}
-        <SectionLabel n={13} name="Who Is This For" />
+        {/* 15–16. Qualification + self-recognition — PDF 16, 17 */}
         <Audiences />
 
-        <SectionLabel n={14} name="Is This For You" />
         <section className="bg-ink px-4 py-16 text-white sm:py-24">
           <div className="mx-auto max-w-5xl">
             <h2 className="mx-auto max-w-3xl text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
@@ -163,12 +154,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 15. Last doubts — PDF 21 */}
-        <SectionLabel n={15} name="FAQ" />
+        {/* 17. Last doubts — PDF 21 */}
         <Faq />
       </main>
 
-      <SectionLabel n={16} name="Final CTA + Footer" />
       {/* Final CTA + footer share one background image. They sit outside <main> so the
           footer is announced as the page footer; the named section stays a landmark. */}
       <div
@@ -177,7 +166,7 @@ export default function Home() {
           images.ctaBackground ? ({ "--cta-image": `url(${images.ctaBackground})` } as React.CSSProperties) : undefined
         }
       >
-        {/* 16. Final CTA — ICP hook */}
+        {/* 18. Final CTA — ICP hook */}
         <section aria-labelledby="final-cta">
           <div className="mx-auto max-w-3xl">
             <h2 id="final-cta" className="text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">

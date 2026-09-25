@@ -23,18 +23,31 @@ function Icon({ d, className = "h-5 w-5" }: { d: string; className?: string }) {
   );
 }
 
+// Copy from the revised buyer-persona document (section 18).
 const others = [
-  { name: "A chatbot", does: "Replies.", icon: i.bot },
   { name: "A CRM", does: "Records.", icon: i.database },
-  { name: "Your sales team", does: "Sells.", icon: i.users },
+  { name: "A chatbot", does: "Replies.", icon: i.bot },
+  { name: "A sales team", does: "Sells.", icon: i.users },
 ];
 
-const isuite = ["Replies", "Qualifies", "Books", "Hands Over", "Follows Up", "Keeps the Sale Moving"];
+// CAPTURE + QUALIFY + ASSIGN + FOLLOW UP + BOOK SITE VISIT + HAND OVER + MANAGE PIPELINE + TRACK TEAM + MOVE TOWARDS BOOKING
+const isuite = [
+  "Capture",
+  "Qualify",
+  "Assign",
+  "Follow up",
+  "Book site visit",
+  "Hand over",
+  "Manage pipeline",
+  "Track team",
+  "Move towards booking",
+];
 
 export function Differentiation() {
   return (
     <section className="bg-paper px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-5xl text-center">
+        {/* Tamil heading from the landing-page PDF (same meaning as the revised doc's English one) */}
         <h2 className="text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
           WhatsApp chatbot-⁠ஐ விட அதிகம்.
           <span className="block text-accent-deep">CRM-⁠ஐ விட அதிகம்.</span>
@@ -64,23 +77,39 @@ export function Differentiation() {
             className="pointer-events-none absolute left-1/2 top-0 h-40 w-[70%] -translate-x-1/2 rounded-full bg-accent/20 blur-3xl"
             aria-hidden
           />
-          <p className="relative font-display text-2xl font-extrabold sm:text-4xl">
-            iSuite <span className="text-accent">AI</span>
+          <p lang="en" className="relative font-display text-2xl font-extrabold sm:text-4xl">
+            iSuite AI <span className="text-accent">connects the sales journey</span>
           </p>
+          {/* 9 steps: 3×3 on tablet/desktop; on phones the goal (last) spans the full row */}
           <ul lang="en" className="relative mt-6 grid grid-cols-2 gap-2 text-left sm:grid-cols-3 sm:gap-3">
-            {isuite.map((a) => (
-              <li
-                key={a}
-                className="flex items-center gap-2.5 rounded-xl border border-accent/30 bg-accent/10 px-3 py-3 text-sm font-bold sm:px-4 sm:text-base"
-              >
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent">
-                  <Icon d={i.check} className="h-3.5 w-3.5" />
-                </span>
-                {a}
-              </li>
-            ))}
+            {isuite.map((a, idx) => {
+              const last = idx === isuite.length - 1;
+              return (
+                <li
+                  key={a}
+                  className={`flex items-center gap-2.5 rounded-xl border px-3 py-3 text-sm font-bold sm:px-4 sm:text-base ${
+                    last
+                      ? "col-span-2 border-accent bg-accent text-on-accent sm:col-span-1"
+                      : "border-accent/30 bg-accent/10"
+                  }`}
+                >
+                  <span
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
+                      last ? "bg-on-accent/15 text-on-accent" : "bg-accent text-on-accent"
+                    }`}
+                  >
+                    <Icon d={i.check} className="h-3.5 w-3.5" />
+                  </span>
+                  {a}
+                </li>
+              );
+            })}
           </ul>
         </div>
+
+        <p className="mt-8 font-display text-xl font-bold sm:text-2xl">
+          Real Estate-⁠க்கான <span className="text-accent-deep">complete Sales System.</span>
+        </p>
       </div>
     </section>
   );

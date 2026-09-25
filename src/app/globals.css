@@ -188,6 +188,27 @@ body {
   animation: cta-ring 2.6s ease-out 0.4s infinite;
 }
 
+/* 5. nudge — slides right, springs back (points the visitor forward) */
+@keyframes cta-nudge {
+  0%,
+  30%,
+  100% {
+    transform: translateX(0);
+  }
+  7% {
+    transform: translateX(10px);
+  }
+  14% {
+    transform: translateX(-4px);
+  }
+  21% {
+    transform: translateX(6px);
+  }
+}
+.cta-nudge {
+  animation: cta-nudge 3s ease-in-out 0.4s infinite;
+}
+
 /* 4. shine — a light streak sweeps across the button */
 @keyframes cta-shine {
   0% {
@@ -261,6 +282,7 @@ body {
   .cta-wiggle,
   .cta-pulse,
   .cta-pulse::before,
+  .cta-nudge,
   .cta-shine::after,
   .reveal-sections > section > *,
   .reveal-final > section > * {

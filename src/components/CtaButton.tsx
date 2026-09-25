@@ -15,7 +15,7 @@ export function trackLead() {
 }
 
 /** Attention animation, one per button so each CTA feels different (styles in globals.css). */
-type Motion = "jump" | "wiggle" | "pulse" | "shine";
+type Motion = "jump" | "wiggle" | "pulse" | "shine" | "nudge";
 
 export function CtaButton({
   className = "",
