@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { CtaButton } from "@/components/CtaButton";
 import { Audiences } from "@/components/Audiences";
+import { BookingModal } from "@/components/BookingModal";
 import { Differentiation } from "@/components/Differentiation";
 import { Faq } from "@/components/Faq";
 import { FollowUp } from "@/components/FollowUp";
@@ -203,6 +204,9 @@ export default function Home() {
           </p>
         </footer>
       </div>
+
+      {/* one booking-form popup, opened by every demo button */}
+      <BookingModal />
     </>
   );
 }
