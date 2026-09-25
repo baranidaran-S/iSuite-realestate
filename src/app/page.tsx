@@ -101,7 +101,7 @@ export default function Home() {
               ))}
             </ul>
             <div className="mt-12 text-center">
-              <CtaButton className="w-full sm:w-auto" />
+              <CtaButton motion="pulse" className="w-full sm:w-auto" />
             </div>
           </div>
         </section>
@@ -215,7 +215,7 @@ export default function Home() {
               ஒவ்வொரு property enquiry-⁠க்கும் <span className="whitespace-nowrap text-accent">ஒரு next step</span> இருக்க வேண்டும்.
             </h2>
             <p className="mt-5 text-base text-white/80 sm:text-lg">அடுத்த enquiry உங்கள் team-⁠க்காக wait பண்ண விடாதீர்கள்.</p>
-            <CtaButton size="lg" className="mt-8 w-full max-w-[480px] sm:w-auto sm:max-w-none" />
+            <CtaButton size="lg" motion="shine" className="mt-8 w-full max-w-[480px] sm:w-auto sm:max-w-none" />
           </div>
         </section>
 

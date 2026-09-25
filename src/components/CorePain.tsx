@@ -10,10 +10,9 @@ export function CorePain() {
   return (
     <section className="bg-paper px-4 py-14 sm:py-20">
       <div className="mx-auto max-w-6xl text-center">
+        {/* the core pain itself is now the hero hook, so this section just shows where it slips */}
         <h2 className="text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-          Leads வருகிறது.
-          <br />
-          ஆனால் salespeople <span className="whitespace-nowrap text-accent-deep">follow-ups-⁠ஐ miss</span> செய்கிறார்கள்.
+          எங்கே <span className="text-accent-deep">miss</span> ஆகிறது?
         </h2>
 
         <ul className="mx-auto mt-10 grid max-w-md gap-3 text-left sm:max-w-lg lg:max-w-4xl lg:grid-cols-5">

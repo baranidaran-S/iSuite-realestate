@@ -116,7 +116,7 @@ export function StageCompare() {
         </div>
 
         <div className="mt-12 text-center">
-          <CtaButton className="w-full sm:w-auto" />
+          <CtaButton motion="wiggle" className="w-full sm:w-auto" />
         </div>
       </div>
     </section>
