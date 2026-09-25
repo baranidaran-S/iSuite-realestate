@@ -19,7 +19,7 @@ type Palette = {
 
 const palettes: Palette[] = [
   { id: "1", name: "Navy + Gold", ink: "#0b1b33", inkSoft: "#13294b", paper: "#f8f6f1", accent: "#f2b544", accentDark: "#d99a20", accentDeep: "#a86f06", onAccent: "#0b1b33" },
-  { id: "2", name: "Navy + Green (current)", ink: "#0b1b33", inkSoft: "#13294b", paper: "#f6f8fb", accent: "#2bd97c", accentDark: "#1fbf69", accentDeep: "#0f9d58", onAccent: "#0b1b33" },
+  { id: "2", name: "Navy + Green (current)", ink: "#0b1b33", inkSoft: "#13294b", paper: "#f6f8fb", accent: "#2bd97c", accentDark: "#1fbf69", accentDeep: "#087a43", onAccent: "#0b1b33" },
   { id: "3", name: "Navy + Coral", ink: "#0b1b33", inkSoft: "#15294a", paper: "#fff6f2", accent: "#ff6b4a", accentDark: "#f0502c", accentDeep: "#d9431f", onAccent: "#ffffff" },
   { id: "4", name: "Navy + Electric Cyan", ink: "#081a33", inkSoft: "#10284d", paper: "#f0f7fb", accent: "#22c3ee", accentDark: "#0ea5cf", accentDeep: "#0284a8", onAccent: "#081a33" },
   { id: "5", name: "Charcoal + Gold", ink: "#16181d", inkSoft: "#23262e", paper: "#f7f5f0", accent: "#e9b949", accentDark: "#d19e2a", accentDeep: "#9a6f0b", onAccent: "#16181d" },

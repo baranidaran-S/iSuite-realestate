@@ -67,8 +67,8 @@ export function StageCompare() {
         </h2>
 
         <div className="mt-10 space-y-4 sm:mt-14 md:space-y-0 md:overflow-hidden md:rounded-3xl md:border-2 md:border-white/20 md:bg-ink-soft/40 md:shadow-[0_0_60px_-20px] md:shadow-accent/40">
-          {/* column headers (desktop) */}
-          <div className="hidden grid-cols-[200px_1fr_1fr] border-b-2 border-white/20 md:grid">
+          {/* column headers (desktop). Hidden from screen readers: each cell carries its own label below. */}
+          <div className="hidden grid-cols-[200px_1fr_1fr] border-b-2 border-white/20 md:grid" aria-hidden>
             <div className="flex items-center bg-white/[0.06] px-6 py-5 font-display text-sm font-bold uppercase tracking-wide text-white/50">
               Stage
             </div>
@@ -97,13 +97,19 @@ export function StageCompare() {
                 <span className="md:hidden">
                   <Mark ok={false} />
                 </span>
-                <p className="leading-relaxed">{s.problem}</p>
+                <p className="leading-relaxed">
+                  <span className="sr-only">Without iSuite AI: </span>
+                  {s.problem}
+                </p>
               </div>
               <div className="m-3 flex items-center gap-3 rounded-2xl border border-accent/40 bg-accent/10 p-4 md:m-0 md:rounded-none md:border-0 md:border-l-2 md:border-accent/60 md:px-6 md:py-6">
                 <span className="md:hidden">
                   <Mark ok />
                 </span>
-                <p className="font-semibold leading-relaxed">{s.role}</p>
+                <p className="font-semibold leading-relaxed">
+                  <span className="sr-only">With iSuite AI: </span>
+                  {s.role}
+                </p>
               </div>
             </div>
           ))}

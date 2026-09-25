@@ -63,7 +63,7 @@ export function Audiences() {
             />
           </div>
 
-          <ul className="grid grid-cols-2 gap-3">
+          <ul lang="en" className="grid grid-cols-2 gap-3">
             {audiences.map((a) => (
               <li
                 key={a.title}

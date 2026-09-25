@@ -40,8 +40,8 @@ const channels = [
 
 export function WorksWith() {
   return (
-    <div className="mt-8 flex flex-col items-center gap-3">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">Works with</p>
+    <div lang="en" className="mt-8 flex flex-col items-center gap-3">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/55">Works with</p>
       {/* tablet: capped width so the 6 chips wrap 3 + 3 instead of leaving one alone */}
       <ul className="flex flex-wrap items-center justify-center gap-2.5 sm:max-w-[430px] sm:gap-3 lg:max-w-none">
         {channels.map((c) => (

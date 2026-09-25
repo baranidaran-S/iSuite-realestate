@@ -20,7 +20,7 @@ export function Solution() {
           <span className="block text-accent-deep">ஒரு Continuous Sales Journey.</span>
         </h2>
         {/* journey strip: 2 columns on phones/tablets, 2 rows of 4 on desktop (arrows only inside a row) */}
-        <ol className="mt-10 grid grid-cols-2 gap-2 rounded-3xl border border-line bg-surface p-4 text-left shadow-sm sm:gap-3 sm:p-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-3">
+        <ol lang="en" className="mt-10 grid grid-cols-2 gap-2 rounded-3xl border border-line bg-surface p-4 text-left shadow-sm sm:gap-3 sm:p-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-3">
           {journey.map((step, i) => {
             const last = i === journey.length - 1;
             const rowEnd = (i + 1) % 4 === 0;

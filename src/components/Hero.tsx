@@ -126,14 +126,14 @@ export function Hero() {
           <p className="mt-4 text-center text-sm leading-relaxed text-white/65">
             {/* inline so the dot stays right before the first word even when the text wraps */}
             <span className="relative mr-2 inline-flex h-2 w-2 align-middle" aria-hidden>
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="pulse-3 absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             உங்கள் buyer இப்போது பல projects-⁠ஐ compare பண்ணிக்கொண்டிருக்கலாம்.
           </p>
           <div className="mt-6 flex flex-col items-center gap-3">
             <p className="text-sm font-semibold text-white/80 sm:text-base">உங்கள் buyer-⁠ன் மொழியிலேயே பேசும்</p>
-            <ul className="flex flex-wrap items-center justify-center gap-2">
+            <ul lang="en" className="flex flex-wrap items-center justify-center gap-2">
               {["Tamil", "Tanglish", "English", "Hindi"].map((l) => (
                 <li
                   key={l}
@@ -153,7 +153,7 @@ export function Hero() {
       <div className="relative mx-auto mt-12 max-w-4xl">
         <ImageSlot
           src={images.hero}
-          alt="iSuite AI WhatsApp conversation and sales dashboard"
+          alt="iSuite AI sales dashboard showing conversations, pipeline and bookings"
           label="Image #1 — Phone + dashboard mockup (1600×1000)"
           width={1626}
           height={967}
@@ -165,7 +165,7 @@ export function Hero() {
 
       {/* promise strip */}
       <div className="relative mx-auto mt-14 max-w-6xl">
-        <ol className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6 xl:gap-4">
+        <ol lang="en" className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6 xl:gap-4">
           {promise.map((step, i) => {
             const last = i === promise.length - 1;
             return (
@@ -193,7 +193,7 @@ export function Hero() {
                   >
                     <StepIcon d={step.icon} />
                   </span>
-                  <span className={`font-display text-sm font-extrabold ${last ? "text-on-accent/70" : "text-white/30"}`}>
+                  <span className={`font-display text-sm font-extrabold ${last ? "text-on-accent/70" : "text-white/50"}`}>
                     0{i + 1}
                   </span>
                 </div>

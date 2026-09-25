@@ -15,7 +15,7 @@
   /* --- Accent (buttons, highlights, icons) --- */
   --color-accent: #2bd97c;      /* main accent: buttons, highlighted words, icons (bright, for dark navy) */
   --color-accent-dark: #1fbf69; /* button hover (slightly darker accent) */
-  --color-accent-deep: #0f9d58; /* green TEXT on light/white backgrounds (bright green is hard to read there) */
+  --color-accent-deep: #087a43; /* green TEXT on light/white backgrounds — dark enough for 4.5:1 contrast on small text */
   --color-on-accent: #0b1b33;   /* text colour ON the accent (use dark text if accent is light, e.g. gold) */
 
   /* --- Text & borders --- */
@@ -48,6 +48,14 @@ html {
 body {
   background: var(--color-surface);
   color: var(--color-ink);
+}
+
+/* Keyboard focus: a dark inner band + green outer band, so the ring stays
+   visible on both the light and the dark sections. */
+:where(a, button):focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--color-ink);
 }
 
 /* ---------- Final CTA background ---------- */
@@ -98,6 +106,18 @@ body {
   animation: chat-pop 0.35s ease-out both;
 }
 
+/* hero "live" dot: pulses 3 times, then settles (no endless blinking) */
+@keyframes pulse-ring {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.pulse-3 {
+  animation: pulse-ring 1s cubic-bezier(0, 0, 0.2, 1) 3 both;
+}
+
 @keyframes typing-dot {
   0%,
   60%,
@@ -132,7 +152,8 @@ body {
   }
 }
 @supports (animation-timeline: view()) {
-  .reveal-sections > section:not(:first-of-type) > * {
+  .reveal-sections > section:not(:first-of-type) > *,
+  .reveal-final > section > * {
     animation: reveal linear both;
     animation-timeline: view();
     animation-range: entry 0% entry 60%;
@@ -142,7 +163,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .chat-pop,
   .typing-dot,
-  .reveal-sections > section > * {
+  .pulse-3,
+  .reveal-sections > section > *,
+  .reveal-final > section > * {
     animation: none !important;
+  }
+  .pulse-3 {
+    opacity: 0;
   }
 }

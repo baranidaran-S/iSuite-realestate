@@ -41,7 +41,7 @@ export function Differentiation() {
         </h2>
 
         {/* one job each */}
-        <div className="mt-10 grid grid-cols-3 gap-2 sm:mt-14 sm:gap-4">
+        <div lang="en" className="mt-10 grid grid-cols-3 gap-2 sm:mt-14 sm:gap-4">
           {others.map((o) => (
             <div key={o.name} className="rounded-2xl border border-line bg-surface px-2 py-5 shadow-sm sm:px-6 sm:py-7">
               <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-paper text-muted sm:h-12 sm:w-12">
@@ -67,7 +67,7 @@ export function Differentiation() {
           <p className="relative font-display text-2xl font-extrabold sm:text-4xl">
             iSuite <span className="text-accent">AI</span>
           </p>
-          <ul className="relative mt-6 grid grid-cols-2 gap-2 text-left sm:grid-cols-3 sm:gap-3">
+          <ul lang="en" className="relative mt-6 grid grid-cols-2 gap-2 text-left sm:grid-cols-3 sm:gap-3">
             {isuite.map((a) => (
               <li
                 key={a}

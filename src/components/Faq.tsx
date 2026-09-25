@@ -24,7 +24,7 @@ export function Faq() {
   return (
     <section id="faq" className="bg-paper px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
-        <h2 className="text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
+        <h2 lang="en" className="text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
           Frequently Asked <span className="text-accent-deep">Questions</span>
         </h2>
 
@@ -68,6 +68,7 @@ export function Faq() {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
+                  inert={!isOpen} /* closed answers are skipped by screen readers */
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}

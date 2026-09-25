@@ -26,6 +26,7 @@ export function ChatDemo() {
   const [shown, setShown] = useState(0);
   const [typing, setTyping] = useState(false);
   const [active, setActive] = useState(false);
+  const [paused, setPaused] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -50,9 +51,9 @@ export function ChatDemo() {
     };
   }, []);
 
-  // Play the script one step at a time, then loop.
+  // Play the script one step at a time, then loop (unless the visitor paused it).
   useEffect(() => {
-    if (!active) return;
+    if (!active || paused) return;
     let t: ReturnType<typeof setTimeout>;
     if (shown >= script.length) {
       t = setTimeout(() => setShown(0), RESTART_DELAY);
@@ -70,7 +71,12 @@ export function ChatDemo() {
       };
     }
     return () => clearTimeout(t);
-  }, [active, shown]);
+  }, [active, paused, shown]);
+
+  const togglePause = () => {
+    setTyping(false); // stop the typing dots too while paused
+    setPaused((p) => !p);
+  };
 
   // Keep the newest message in view.
   useEffect(() => {
@@ -82,8 +88,20 @@ export function ChatDemo() {
     <div ref={rootRef} className="relative mx-auto w-full max-w-[300px] text-left sm:max-w-[320px]">
       <div className="absolute -inset-8 rounded-[56px] bg-accent/15 blur-3xl" aria-hidden />
 
+      {/* screen readers get the whole conversation once, instead of the looping animation */}
+      <div className="sr-only">
+        <p>Sample WhatsApp chat between a buyer and iSuite AI:</p>
+        <ol>
+          {script.map((m, i) => (
+            <li key={i}>
+              {m.from === "buyer" ? "Buyer" : m.from === "ai" ? "iSuite AI" : "Site visit booked"}: {m.text}
+            </li>
+          ))}
+        </ol>
+      </div>
+
       {/* phone: frame image (585×1140) with a transparent screen; the chat sits in that screen area */}
-      <div className="relative aspect-[585/1140] drop-shadow-2xl">
+      <div className="relative aspect-[585/1140] drop-shadow-2xl" aria-hidden>
         <div className="absolute left-[7.35%] top-[3.6%] flex h-[92.37%] w-[85.47%] flex-col overflow-hidden rounded-[8.2%/3.9%] bg-wa-bg">
           {/* header (extra top padding clears the camera punch-hole) */}
           <div className="flex items-center gap-3 bg-wa-header px-4 pb-3 pt-9 text-white">
@@ -98,7 +116,6 @@ export function ChatDemo() {
           <div
             ref={bodyRef}
             className="min-h-0 flex-1 space-y-2 overflow-hidden bg-wa-bg px-3 py-4 text-[13px] leading-relaxed text-ink"
-            aria-live="polite"
           >
             {script.slice(0, shown).map((m, i) =>
               m.from === "booked" ? (
@@ -125,7 +142,7 @@ export function ChatDemo() {
             )}
             {typing && (
               <div className="chat-pop flex justify-start">
-                <p className="flex gap-1 rounded-xl rounded-tl-sm bg-white px-3 py-3 shadow-sm" aria-label="typing">
+                <p className="flex gap-1 rounded-xl rounded-tl-sm bg-white px-3 py-3 shadow-sm">
                   <span className="typing-dot" />
                   <span className="typing-dot [animation-delay:150ms]" />
                   <span className="typing-dot [animation-delay:300ms]" />
@@ -145,6 +162,19 @@ export function ChatDemo() {
           aria-hidden
         />
       </div>
+
+      {/* moving content must be pausable; not needed when the visitor asked for reduced motion */}
+      <button
+        type="button"
+        lang="en"
+        onClick={togglePause}
+        className="relative mx-auto mt-5 flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-semibold text-muted shadow-sm transition hover:text-ink motion-reduce:hidden"
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
+          <path d={paused ? "M8 5v14l11-7z" : "M7 5h4v14H7zM13 5h4v14h-4z"} />
+        </svg>
+        {paused ? "Play demo" : "Pause demo"}
+      </button>
     </div>
   );
 }

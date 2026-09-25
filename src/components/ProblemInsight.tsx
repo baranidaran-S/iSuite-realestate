@@ -141,7 +141,8 @@ export function ProblemInsight() {
                     <span className={`flex h-6 w-6 items-center justify-center rounded-full ${r.leakTone}`}>
                       <Icon d={r.leakIcon} className="h-3.5 w-3.5" />
                     </span>
-                    <span className="hidden min-[400px]:inline">{r.leak}</span>
+                    {/* visually hidden on small phones, but still read by screen readers */}
+                    <span className="sr-only min-[400px]:not-sr-only">{r.leak}</span>
                   </span>
                 </div>
               </li>
