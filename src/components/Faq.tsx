@@ -9,11 +9,21 @@ const faqs = [
   },
   { q: "இது என் salespeople-⁠ஐ replace செய்யுமா?", a: "இல்லை. இது உங்கள் sales team-⁠உடன் சேர்ந்து வேலை செய்கிறது." },
   { q: "WhatsApp enquiries-⁠ஐ handle செய்யுமா?", a: "ஆம். WhatsApp iSuite AI sales journey-⁠ன் முக்கிய channel." },
-  { q: "Tamil-⁠ல் communicate செய்யுமா?", a: "ஆம். Tamil, Tanglish, English, Hindi மற்றும் more." },
+  {
+    q: "Property buyers-⁠ஐ qualify செய்ய முடியுமா?",
+    a: "ஆம். Budget, location, property type, configuration மற்றும் timeline போன்ற information-⁠ஐ define செய்யலாம்.",
+  },
+  { q: "Site visits book செய்ய முடியுமா?", a: "ஆம், booking workflow மற்றும் availability configure செய்யப்பட்டிருந்தால்." },
+  { q: "Salesperson conversation-⁠ஐ takeover செய்ய முடியுமா?", a: "ஆம், customer context-⁠உடன் handover செய்யலாம்." },
   { q: "Meta advertising cost iSuite AI-⁠க்குள் included-⁠ஆ?", a: "இல்லை. Meta தனது applicable rates-⁠ல் தனியாக charge செய்யும்." },
+  { q: "Tamil-⁠ல் communicate செய்யுமா?", a: "ஆம். Tamil, Tanglish, English, Hindi மற்றும் more." },
   {
     q: "WhatsApp approval எவ்வளவு நேரம் ஆகும்?",
     a: "Approximately 1–2 weeks plan பண்ணுங்கள்; actual approval Meta review-⁠ஐ பொறுத்தது.",
+  },
+  {
+    q: "WhatsApp-⁠ல் யாருக்கும் message அனுப்ப முடியுமா?",
+    a: "Appropriate opt-in / permission கொடுத்த customers-⁠ஐ மட்டுமே contact செய்ய வேண்டும்.",
   },
 ];
 

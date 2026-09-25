@@ -2,20 +2,26 @@ import Image from "next/image";
 
 import { CtaButton } from "@/components/CtaButton";
 import { Audiences } from "@/components/Audiences";
-import { CorePain } from "@/components/CorePain";
 import { Differentiation } from "@/components/Differentiation";
 import { Faq } from "@/components/Faq";
+import { FollowUp } from "@/components/FollowUp";
+import { Handover } from "@/components/Handover";
 import { Hero } from "@/components/Hero";
+import { ManagerVisibility } from "@/components/ManagerVisibility";
+import { MetaAds } from "@/components/MetaAds";
+import { NextStep } from "@/components/NextStep";
 import { PaletteSwitcher } from "@/components/PaletteSwitcher";
-import { ProblemInsight } from "@/components/ProblemInsight";
+import { RealProblem } from "@/components/RealProblem";
+import { SalesTeam } from "@/components/SalesTeam";
+import { SectionLabel } from "@/components/SectionLabel";
+import { SiteVisit } from "@/components/SiteVisit";
 import { Solution } from "@/components/Solution";
-import { StageCompare } from "@/components/StageCompare";
 import { images } from "@/images";
 
 /* ---------- Content ---------- */
 // Across the page, a "-" before a Tamil suffix (Enquiries-⁠ஐ) is followed by an invisible
 // word joiner (U+2060) so the suffix never wraps onto a line by itself. Retyping that
-// hyphen drops the joiner, so copy the "-⁠" from an existing word when editing text.
+// hyphen drops the joiner, so copy the hyphen from an existing word when editing text.
 
 const signals = [
   "Meta Ads run செய்கிறோம் / Portal-⁠லிருந்து enquiries வருகிறது.",
@@ -28,15 +34,6 @@ const signals = [
   "Site visits miss ஆகிறது.",
   "Buyers முடிவெடுக்க மாதக்கணக்கில் ஆகிறது.",
   "எந்த ads உண்மையில் bookings கொண்டு வந்தது என்று தெரியவில்லை.",
-];
-
-const fit = [
-  ["High enquiry volume + WhatsApp-heavy sales", "மிகக் குறைவான enquiries"],
-  ["பல salespeople / channel teams", "Handover தேவையில்லாத single-person operation"],
-  ["பல projects / properties", "ஒரே ஒரு simple product sale"],
-  ["Site visit தான் முக்கிய conversion step", "Site visit / appointment step இல்லை"],
-  ["நீண்ட follow-up cycle", "உடனே close ஆகும் transactions"],
-  ["Manual lead distribution மற்றும் follow-up", "ஏற்கனவே consistent automated process இருக்கிறது"],
 ];
 
 const safety = [
@@ -54,115 +51,50 @@ export default function Home() {
       <main className="reveal-sections overflow-x-clip">
         {/* TEMPORARY palette review tool — remove after final palette is chosen */}
         <PaletteSwitcher />
-        {/* 1. Hero — ICP positioning + promise */}
+        {/* TEMPORARY: every <SectionLabel /> below is a review tag — remove with SectionLabel.tsx */}
+
+        {/* 1. Hook — PDF hero */}
+        <SectionLabel n={1} name="Hero" />
         <Hero />
 
-        {/* 2. Core pain — ICP 4 */}
-        <CorePain />
+        {/* 2. Pain — PDF section 2 */}
+        <SectionLabel n={2} name="The Real Problem" />
+        <RealProblem />
 
-        {/* 3. Problem + Insight — ICP 7 */}
-        <ProblemInsight />
+        {/* 3. Solution — PDF section 3 */}
+        <SectionLabel n={3} name="Every Enquiry Gets a Next Step" />
+        <NextStep />
 
-        {/* 4. Solution + Buyer journey — ICP 7, 2 */}
+        {/* 4. Proof — PDF demo heading + chat demo */}
+        <SectionLabel n={4} name="Demo (chat)" />
         <Solution />
 
-        {/* 5. Stage table — ICP 6 */}
-        <StageCompare />
+        {/* 5–7. The buyer's journey, in order — PDF sections 8, 9, 10 */}
+        <SectionLabel n={5} name="Site Visit" />
+        <SiteVisit />
 
-        {/* 6. Differentiation — ICP 10 */}
+        <SectionLabel n={6} name="Salesperson Handover" />
+        <Handover />
+
+        <SectionLabel n={7} name="Follow-up" />
+        <FollowUp />
+
+        {/* 8. Objection: "will it replace my team?" — PDF section 11 */}
+        <SectionLabel n={8} name="Sales Team" />
+        <SalesTeam />
+
+        {/* 9–10. Owner / manager view — PDF sections 12, 5 */}
+        <SectionLabel n={9} name="Manager Visibility" />
+        <ManagerVisibility />
+
+        <SectionLabel n={10} name="Meta Ads" />
+        <MetaAds />
+
+        {/* 11–12. Objections: "just a chatbot/CRM?" and "will the AI say something wrong?" — PDF 18, 14 */}
+        <SectionLabel n={11} name="Differentiation" />
         <Differentiation />
 
-        {/* 7. Who it's for — ICP 1 */}
-        <Audiences />
-
-        {/* 8. Is this for you — ICP 3, 8 */}
-        <section className="border-t border-white/10 bg-ink px-4 py-16 text-white sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="mx-auto max-w-3xl text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-              இவற்றில் ஏதாவது உங்களுக்கு familiar-⁠ஆ இருந்தால்,{" "}
-              <span className="text-accent">iSuite AI உங்களுக்காக.</span>
-            </h2>
-            <ul className="mt-10 grid gap-3 sm:mt-14 md:grid-cols-2 md:gap-4">
-              {signals.map((s) => (
-                <li
-                  key={s}
-                  className="flex items-center gap-3 rounded-2xl rounded-tl-sm border border-white/15 bg-white/[0.05] px-4 py-4 leading-relaxed transition hover:border-accent/50 hover:bg-accent/10 sm:px-5"
-                >
-                  <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent"
-                    aria-hidden
-                  >
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12l5 5L20 7" />
-                    </svg>
-                  </span>
-                  <span className="text-white/90">“{s}”</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-12 text-center">
-              <CtaButton motion="pulse" className="w-full sm:w-auto" />
-            </div>
-          </div>
-        </section>
-
-        {/* 9. Right fit / not the right fit — ICP 9 */}
-        <section className="bg-paper px-4 py-16 sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-              iSuite AI உங்களுக்கு <span className="text-accent-deep">சரியானதா?</span>
-            </h2>
-
-            {/* two equal cards, tops and bottoms aligned; stacked below 1024px (Tamil titles need the width) */}
-            <div className="mt-10 grid gap-5 sm:mt-14 lg:grid-cols-2 lg:gap-6">
-              {/* strong fit */}
-              <div className="overflow-hidden rounded-3xl border-2 border-accent bg-surface shadow-xl shadow-accent/15">
-                <div className="flex items-center gap-3 bg-accent px-6 py-4 text-on-accent">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-on-accent/15" aria-hidden>
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12l5 5L20 7" />
-                    </svg>
-                  </span>
-                  <h3 className="font-display text-base font-extrabold sm:text-xl">சரியான fit</h3>
-                </div>
-                <ul className="divide-y divide-line px-6 py-2">
-                  {fit.map(([strong]) => (
-                    <li key={strong} className="flex items-center gap-3 py-3.5 font-semibold leading-snug">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent-deep" aria-hidden>
-                        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M5 12l5 5L20 7" />
-                        </svg>
-                      </span>
-                      {strong}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* weak fit */}
-              <div className="overflow-hidden rounded-3xl border border-line bg-surface/70">
-                <div className="flex items-center gap-3 border-b border-line px-6 py-4 text-muted">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-paper" aria-hidden>
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 6 6 18M6 6l12 12" />
-                    </svg>
-                  </span>
-                  <h3 className="font-display text-base font-bold sm:text-xl">இப்போது தேவையில்லை</h3>
-                </div>
-                <ul className="divide-y divide-line px-6 py-2 text-muted">
-                  {fit.map(([, weak]) => (
-                    <li key={weak} className="flex items-center gap-3 py-3.5 leading-snug">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-muted/50" aria-hidden />
-                      {weak}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 10. Trust — AI safety (PDF 1) */}
+        <SectionLabel n={12} name="Trust — AI Safety" />
         <section className="bg-ink px-4 py-16 text-white sm:py-24">
           <div className="mx-auto max-w-4xl text-center">
             {/* fluid size on phones so the longest unbroken phrase still fits a 320px screen */}
@@ -196,10 +128,47 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 11. FAQ */}
+        {/* 13–14. Qualification + self-recognition — PDF 16, 17 */}
+        <SectionLabel n={13} name="Who Is This For" />
+        <Audiences />
+
+        <SectionLabel n={14} name="Is This For You" />
+        <section className="bg-ink px-4 py-16 text-white sm:py-24">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="mx-auto max-w-3xl text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
+              இவற்றில் ஏதாவது உங்களுக்கு familiar-⁠ஆ இருந்தால்,{" "}
+              <span className="text-accent">iSuite AI உங்களுக்காக.</span>
+            </h2>
+            <ul className="mt-10 grid gap-3 sm:mt-14 md:grid-cols-2 md:gap-4">
+              {signals.map((s) => (
+                <li
+                  key={s}
+                  className="flex items-center gap-3 rounded-2xl rounded-tl-sm border border-white/15 bg-white/[0.05] px-4 py-4 leading-relaxed transition hover:border-accent/50 hover:bg-accent/10 sm:px-5"
+                >
+                  <span
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent"
+                    aria-hidden
+                  >
+                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12l5 5L20 7" />
+                    </svg>
+                  </span>
+                  <span className="text-white/90">“{s}”</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-12 text-center">
+              <CtaButton motion="pulse" className="w-full sm:w-auto" />
+            </div>
+          </div>
+        </section>
+
+        {/* 15. Last doubts — PDF 21 */}
+        <SectionLabel n={15} name="FAQ" />
         <Faq />
       </main>
 
+      <SectionLabel n={16} name="Final CTA + Footer" />
       {/* Final CTA + footer share one background image. They sit outside <main> so the
           footer is announced as the page footer; the named section stays a landmark. */}
       <div
@@ -208,7 +177,7 @@ export default function Home() {
           images.ctaBackground ? ({ "--cta-image": `url(${images.ctaBackground})` } as React.CSSProperties) : undefined
         }
       >
-        {/* 12. Final CTA — ICP hook */}
+        {/* 16. Final CTA — ICP hook */}
         <section aria-labelledby="final-cta">
           <div className="mx-auto max-w-3xl">
             <h2 id="final-cta" className="text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">

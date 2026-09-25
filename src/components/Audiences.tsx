@@ -43,15 +43,15 @@ const audiences = [
 
 export function Audiences() {
   return (
-    <section className="bg-ink px-4 py-16 text-white sm:py-24">
+    <section className="bg-paper px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <h2 className="mx-auto max-w-3xl text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
           Conversations மூலம் sell செய்யும்{" "}
-          <span className="text-accent sm:whitespace-nowrap">Real Estate teams-⁠க்காக</span> உருவாக்கப்பட்டது.
+          <span className="text-accent-deep sm:whitespace-nowrap">Real Estate teams-⁠க்காக</span> உருவாக்கப்பட்டது.
         </h2>
 
         <div className="mt-10 grid items-center gap-8 sm:mt-14 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
-          <div className="overflow-hidden rounded-3xl border border-white/10">
+          <div className="overflow-hidden rounded-3xl border border-line shadow-lg">
             <ImageSlot
               src={images.siteVisit}
               alt="Real estate salesperson meeting buyers for a site visit"
@@ -59,7 +59,6 @@ export function Audiences() {
               width={1672}
               height={941}
               className="rounded-3xl"
-              dark
             />
           </div>
 
@@ -67,9 +66,9 @@ export function Audiences() {
             {audiences.map((a) => (
               <li
                 key={a.title}
-                className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:border-accent/50 hover:bg-accent/10 sm:p-4"
+                className="group flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 shadow-sm transition hover:border-accent-deep/40 hover:shadow-md sm:p-4"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent transition group-hover:bg-accent group-hover:text-on-accent">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent-deep transition group-hover:bg-accent group-hover:text-on-accent">
                   <Icon d={a.icon} />
                 </span>
                 <span className="font-display text-sm font-bold leading-snug sm:text-[15px]">{a.title}</span>
