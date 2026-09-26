@@ -8,7 +8,8 @@ import { useId, useState } from "react";
 const faqs = [
   {
     q: "iSuite AI ஒரு Real Estate CRM-⁠ஆ?",
-    a: "iSuite AI ஒரு AI Sales System. Real-estate teams-⁠க்கு enquiries, qualification, booking, salesperson handover மற்றும் follow-up-⁠ஐ manage செய்ய உதவுகிறது.",
+    // says CRM is included (revised doc: "CRM capabilities-⁠உடன் … connect செய்கிறது")
+    a: "iSuite AI ஒரு AI Sales System — CRM அதில் ஒரு feature. CRM-⁠உடன் சேர்த்து enquiries, qualification, site visit booking, salesperson handover மற்றும் follow-up-⁠ஐ ஒரே இடத்தில் manage செய்ய உதவுகிறது.",
   },
   { q: "இது என் salespeople-⁠ஐ replace செய்யுமா?", a: "இல்லை. இது உங்கள் sales team-⁠உடன் சேர்ந்து வேலை செய்கிறது." },
   { q: "WhatsApp enquiries-⁠ஐ handle செய்யுமா?", a: "ஆம். WhatsApp iSuite AI sales journey-⁠ன் முக்கிய channel. Instagram, Facebook messages-⁠க்கும் AI பதில் அளிக்கும்." },
