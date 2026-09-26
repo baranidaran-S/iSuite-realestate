@@ -60,7 +60,7 @@ export function BookingModal() {
     >
       {/* no visible title bar — the form has its own title; this names the popup for screen readers */}
       <p id={titleId} className="sr-only">
-        FREE REAL ESTATE DEMO BOOK பண்ணுங்கள்
+        FREE DEMO-⁠வை BOOK பண்ணுங்க
       </p>
 
       {/* floating close button (on phones it sits in a slim white strip above the form) */}

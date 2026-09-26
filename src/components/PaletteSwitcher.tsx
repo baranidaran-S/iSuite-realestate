@@ -102,8 +102,8 @@ export function PaletteSwitcher() {
 
   return (
     <>
-      {/* mobile: top bar */}
-      <div className="sticky top-0 z-[60] border-b border-white/10 bg-black/95 text-white md:hidden">
+    
+      {/* <div className="sticky top-0 z-[60] border-b border-white/10 bg-black/95 text-white md:hidden">
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
@@ -133,7 +133,7 @@ export function PaletteSwitcher() {
         )}
       </div>
 
-      {/* desktop: floating panel top-right */}
+   
       <div className="fixed right-4 top-4 z-[60] hidden md:block">
         <div className="rounded-2xl border border-white/15 bg-black/90 p-3 text-white shadow-2xl">
           <button
@@ -158,7 +158,7 @@ export function PaletteSwitcher() {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

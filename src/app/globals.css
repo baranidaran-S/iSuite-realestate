@@ -58,6 +58,14 @@ body {
   box-shadow: 0 0 0 3px var(--color-ink);
 }
 
+/* Tailwind v4 gives buttons the plain arrow cursor — show the hand on every clickable control
+   (demo app tabs, FAQ questions, Pause demo, popup close …). Links already get it. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary {
+  cursor: pointer;
+}
+
 /* ---------- Final CTA background ---------- */
 /* Phones/tablets: image anchored right so the phone + laptop stay visible,
    with a top-to-bottom fade. Desktop: left-to-right fade, image centred. */

@@ -69,7 +69,10 @@ export function CtaButton({
       aria-haspopup="dialog"
       className={`relative inline-flex items-center justify-center gap-2 bg-accent font-bold text-on-accent shadow-lg shadow-accent/30 transition hover:-translate-y-0.5 hover:bg-accent-dark active:translate-y-0 ${sizing} ${className}`}
     >
-      FREE REAL ESTATE DEMO BOOK பண்ணுங்கள்
+      {/* when the label needs two lines (phones), it breaks as "FREE DEMO-⁠வை" / "BOOK பண்ணுங்க" */}
+      <span className="text-center">
+        FREE DEMO-⁠வை <span className="whitespace-nowrap">BOOK பண்ணுங்க</span>
+      </span>
       <span aria-hidden>→</span>
     </a>
   );

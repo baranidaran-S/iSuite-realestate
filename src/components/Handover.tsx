@@ -36,7 +36,8 @@ function Icon({ d, className = "h-5 w-5" }: { d: string; className?: string }) {
 
 export function Handover() {
   return (
-    <section className="bg-ink px-4 py-16 text-white sm:py-24">
+    // divider line: while the Site Visit section is hidden, this dark section sits right after the dark demo
+    <section className="border-t border-white/10 bg-ink px-4 py-16 text-white sm:py-24">
       <div className="mx-auto max-w-6xl text-center">
         <h2 className="text-balance text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
           Salesperson takeover செய்யும்போது{" "}

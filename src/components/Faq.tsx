@@ -2,28 +2,28 @@
 
 import { useId, useState } from "react";
 
+// FAQ from the Tamil PDF (section 21). Changed in chat: WhatsApp answer also mentions Instagram/Facebook,
+// qualify + Tamil answers reworded, the Meta advertising cost and two WhatsApp setup questions removed,
+// and one iSuite software question added.
 const faqs = [
   {
     q: "iSuite AI ஒரு Real Estate CRM-⁠ஆ?",
     a: "iSuite AI ஒரு AI Sales System. Real-estate teams-⁠க்கு enquiries, qualification, booking, salesperson handover மற்றும் follow-up-⁠ஐ manage செய்ய உதவுகிறது.",
   },
   { q: "இது என் salespeople-⁠ஐ replace செய்யுமா?", a: "இல்லை. இது உங்கள் sales team-⁠உடன் சேர்ந்து வேலை செய்கிறது." },
-  { q: "WhatsApp enquiries-⁠ஐ handle செய்யுமா?", a: "ஆம். WhatsApp iSuite AI sales journey-⁠ன் முக்கிய channel." },
+  { q: "WhatsApp enquiries-⁠ஐ handle செய்யுமா?", a: "ஆம். WhatsApp iSuite AI sales journey-⁠ன் முக்கிய channel. Instagram, Facebook messages-⁠க்கும் AI பதில் அளிக்கும்." },
   {
     q: "Property buyers-⁠ஐ qualify செய்ய முடியுமா?",
-    a: "ஆம். Budget, location, property type, configuration மற்றும் timeline போன்ற information-⁠ஐ define செய்யலாம்.",
+    a: "ஆம். Budget, location, property type, configuration மற்றும் timeline போன்ற information-⁠ஐ அடிப்படையாகக் கொண்டு qualify செய்யலாம்.",
   },
   { q: "Site visits book செய்ய முடியுமா?", a: "ஆம், booking workflow மற்றும் availability configure செய்யப்பட்டிருந்தால்." },
   { q: "Salesperson conversation-⁠ஐ takeover செய்ய முடியுமா?", a: "ஆம், customer context-⁠உடன் handover செய்யலாம்." },
-  { q: "Meta advertising cost iSuite AI-⁠க்குள் included-⁠ஆ?", a: "இல்லை. Meta தனது applicable rates-⁠ல் தனியாக charge செய்யும்." },
-  { q: "Tamil-⁠ல் communicate செய்யுமா?", a: "ஆம். Tamil, Tanglish, English, Hindi மற்றும் more." },
+  { q: "Tamil-⁠ல் communicate செய்யுமா?", a: "ஆம். Tamil, Tanglish, English, Hindi மற்றும் buyer-⁠ன் மொழிக்கேற்ப பேசும்." },
+  // iSuite software question, asked the way an owner / sales head would — answer from the
+  // revised Word doc (section 13: multiple projects)
   {
-    q: "WhatsApp approval எவ்வளவு நேரம் ஆகும்?",
-    a: "Approximately 1–2 weeks plan பண்ணுங்கள்; actual approval Meta review-⁠ஐ பொறுத்தது.",
-  },
-  {
-    q: "WhatsApp-⁠ல் யாருக்கும் message அனுப்ப முடியுமா?",
-    a: "Appropriate opt-in / permission கொடுத்த customers-⁠ஐ மட்டுமே contact செய்ய வேண்டும்.",
+    q: "எங்களிடம் பல projects, பல salespeople இருக்கிறார்கள். இது எங்களுக்கு பொருந்துமா?",
+    a: "ஆம். ஒவ்வொரு lead எந்த project-⁠க்கானது, எந்த salesperson-⁠இடம் இருக்கிறது, எந்த stage-⁠ல் இருக்கிறது என்பது தெளிவாக தெரியும்.",
   },
 ];
 

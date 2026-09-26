@@ -1,5 +1,5 @@
 // "Works with" strip — simplified channel marks in brand colours, drawn inline.
-const channels = [
+export const channels = [
   {
     name: "WhatsApp",
     color: "#25D366",

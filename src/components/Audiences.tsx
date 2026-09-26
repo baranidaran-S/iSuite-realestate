@@ -1,5 +1,7 @@
-import { ImageSlot } from "@/components/ImageSlot";
-import { images } from "@/images";
+import { CtaButton } from "@/components/CtaButton";
+
+// "Who is this for?" — merged in chat from two sections: the business types (PDF 16) and the
+// "if any of these sound familiar" statements (PDF 17). The photo was dropped.
 
 /* Lucide-style stroke icon paths */
 const i = {
@@ -41,40 +43,73 @@ const audiences = [
   { title: "Commercial Property Sales Teams", icon: i.store },
 ];
 
+// what a buyer-persona owner / sales head says out loud (PDF 17)
+const signals = [
+  "Meta Ads run செய்கிறோம் / Portal-⁠லிருந்து enquiries வருகிறது.",
+  "எங்கள் leads WhatsApp-⁠க்கு வருகிறது.",
+  "பல projects, பல salespeople manage செய்கிறோம்.",
+  "Leads manually distribute செய்கிறோம்.",
+  "எங்கள் salespeople consistent-⁠ஆ follow-up செய்யவில்லை.",
+  "எந்த leads pending-⁠ல் இருக்கிறது என்று எனக்குத் தெரியவில்லை.",
+  "Transfer செய்யும்போது customer மீண்டும் எல்லாவற்றையும் சொல்ல வேண்டியுள்ளது.",
+  "Site visits miss ஆகிறது.",
+  "Buyers முடிவெடுக்க மாதக்கணக்கில் ஆகிறது.",
+  "எந்த ads உண்மையில் bookings கொண்டு வந்தது என்று தெரியவில்லை.",
+];
+
 export function Audiences() {
   return (
-    <section className="bg-paper px-4 py-16 sm:py-24">
+    // dark section — the page alternates dark / light
+    <section className="bg-ink px-4 py-16 text-white sm:py-24">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mx-auto max-w-3xl text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-          Conversations மூலம் sell செய்யும்{" "}
-          <span className="text-accent-deep sm:whitespace-nowrap">Real Estate teams-⁠க்காக</span> உருவாக்கப்பட்டது.
+        {/* heading chosen in chat (the PDF says "Conversations மூலம் sell செய்யும் Real Estate teams-⁠க்காக
+            உருவாக்கப்பட்டது.") — asks the question the cards and statements below answer */}
+        <h2 className="mx-auto max-w-4xl text-balance text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
+          <span className="text-accent">யாருக்காக</span> இந்த <span className="whitespace-nowrap">iSuite AI</span> உருவாக்கப்பட்டது?
         </h2>
 
-        <div className="mt-10 grid items-center gap-8 sm:mt-14 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
-          <div className="overflow-hidden rounded-3xl border border-line shadow-lg">
-            <ImageSlot
-              src={images.siteVisit}
-              alt="Real estate salesperson meeting buyers for a site visit"
-              label="Image #6 — Salesperson greeting buyers for site visit (1600×900)"
-              width={1672}
-              height={941}
-              className="rounded-3xl"
-            />
-          </div>
+        {/* the business types */}
+        <ul lang="en" className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 lg:grid-cols-4">
+          {audiences.map((a) => (
+            <li
+              key={a.title}
+              className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-3 transition hover:border-accent/50 hover:bg-accent/10 sm:p-4"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent transition group-hover:bg-accent group-hover:text-on-accent">
+                <Icon d={a.icon} />
+              </span>
+              <span className="font-display text-sm font-bold leading-snug sm:text-[15px]">{a.title}</span>
+            </li>
+          ))}
+        </ul>
 
-          <ul lang="en" className="grid grid-cols-2 gap-3">
-            {audiences.map((a) => (
+        {/* self-recognition: "does this sound like us?" */}
+        <div className="mx-auto mt-14 max-w-5xl sm:mt-16">
+          <h3 className="mx-auto max-w-3xl text-balance text-center font-display text-xl font-extrabold leading-snug sm:text-3xl">
+            இவற்றில் ஏதாவது உங்களுக்கு familiar-⁠ஆ இருந்தால்,{" "}
+            <span className="whitespace-nowrap text-accent">iSuite AI உங்களுக்காக.</span>
+          </h3>
+          <ul className="mt-8 grid gap-3 md:grid-cols-2 md:gap-4">
+            {signals.map((s) => (
               <li
-                key={a.title}
-                className="group flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 shadow-sm transition hover:border-accent-deep/40 hover:shadow-md sm:p-4"
+                key={s}
+                className="flex items-center gap-3 rounded-2xl rounded-tl-sm border border-white/15 bg-white/[0.05] px-4 py-4 leading-relaxed sm:px-5"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent-deep transition group-hover:bg-accent group-hover:text-on-accent">
-                  <Icon d={a.icon} />
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent"
+                  aria-hidden
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
                 </span>
-                <span className="font-display text-sm font-bold leading-snug sm:text-[15px]">{a.title}</span>
+                <span className="text-white/90">“{s}”</span>
               </li>
             ))}
           </ul>
+          <div className="mt-12 text-center">
+            <CtaButton motion="pulse" className="w-full sm:w-auto" />
+          </div>
         </div>
       </div>
     </section>

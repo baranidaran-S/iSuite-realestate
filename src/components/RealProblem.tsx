@@ -22,8 +22,6 @@ const tasks = [
   { action: "follow-up", rest: "செய்ய வேண்டும்.", icon: i.clock, tone: "from-rose-400 to-pink-600" },
 ];
 
-const flow = ["Ad", "Enquiry", "WhatsApp", "Qualification", "Site Visit", "Sales", "Booking"];
-
 function Icon({ d, className = "h-5 w-5" }: { d: string; className?: string }) {
   return (
     <svg
@@ -46,11 +44,12 @@ export function RealProblem() {
     <section className="bg-paper px-4 py-14 sm:py-20">
       {/* wide container so each sentence of the heading fits on one line on desktop */}
       <div className="mx-auto max-w-7xl text-center">
+        {/* new heading chosen in chat (replaces the PDF's "உங்கள் Ads enquiries-⁠ஐ கொண்டு வருகிறது…") */}
         <h2 className="text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-          உங்கள் Ads enquiries-⁠ஐ கொண்டு வருகிறது.
-          <span className="block">
-            ஆனால் அதற்குப் பிறகு <span className="whitespace-nowrap text-accent-deep">என்ன நடக்கிறது?</span>
-          </span>
+          {/* 3 lines as written (on phones the middle line is too wide and splits in two) */}
+          Enquiries வருகிறது.
+          <span className="block">ஆனால் அவை Deals-⁠ஆக</span>
+          <span className="block text-accent-deep">ஏன் மாறவில்லை?</span>
         </h2>
 
         {/* one enquiry → everything someone has to do by hand */}
@@ -95,18 +94,6 @@ export function RealProblem() {
           visit-⁠க்கும் நடுவில் <span className="font-bold text-accent">leads காணாமல் போகலாம்.</span>
         </p>
 
-        {/* the journey it should follow — arrow sticks to the previous step so a line never starts with "→" */}
-        <p
-          lang="en"
-          className="mx-auto mt-6 inline-flex max-w-3xl flex-wrap justify-center gap-x-2 gap-y-1 rounded-2xl border border-line bg-surface px-5 py-3 font-display text-sm font-bold uppercase text-ink sm:text-base"
-        >
-          {flow.map((f, idx) => (
-            <span key={f} className="whitespace-nowrap">
-              {f}
-              {idx < flow.length - 1 && <span className="text-accent-deep">&nbsp;→</span>}
-            </span>
-          ))}
-        </p>
       </div>
     </section>
   );

@@ -274,7 +274,7 @@ export default function Palettes() {
               className="mt-6 inline-flex rounded-xl px-6 py-4 font-bold shadow-lg"
               style={{ background: p.accent, color: p.accentText }}
             >
-              FREE DEMO BOOK பண்ணுங்கள் →
+              FREE DEMO-⁠வை BOOK பண்ணுங்க →
             </span>
           </div>
 

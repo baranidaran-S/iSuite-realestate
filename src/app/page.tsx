@@ -3,20 +3,26 @@ import Image from "next/image";
 import { CtaButton } from "@/components/CtaButton";
 import { Audiences } from "@/components/Audiences";
 import { BookingModal } from "@/components/BookingModal";
-import { Differentiation } from "@/components/Differentiation";
+// HIDDEN for now (see page below) — remove for good after the final audit
+// import { Differentiation } from "@/components/Differentiation";
 import { Faq } from "@/components/Faq";
-import { FollowUp } from "@/components/FollowUp";
-import { Handover } from "@/components/Handover";
+// HIDDEN for now (see page below) — remove for good after the final audit
+// import { FollowUp } from "@/components/FollowUp";
+// HIDDEN for now (see page below) — remove for good after the final audit
+// import { Handover } from "@/components/Handover";
 import { Hero } from "@/components/Hero";
-import { ManagerVisibility } from "@/components/ManagerVisibility";
+// HIDDEN for now (see page below) — remove for good after the final audit
+// import { ManagerVisibility } from "@/components/ManagerVisibility";
 import { NextStep } from "@/components/NextStep";
 import { PaletteSwitcher } from "@/components/PaletteSwitcher";
-import { Pipeline } from "@/components/Pipeline";
+// HIDDEN for now (see page below) — remove for good after the final audit
+// import { Pipeline } from "@/components/Pipeline";
 import { RealProblem } from "@/components/RealProblem";
+import { TopBar } from "@/components/TopBar";
 import { Reporting } from "@/components/Reporting";
-import { SalesJourney } from "@/components/SalesJourney";
 import { SalesTeam } from "@/components/SalesTeam";
-import { SiteVisit } from "@/components/SiteVisit";
+// HIDDEN for now (see page below) — remove for good after the final audit
+// import { SiteVisit } from "@/components/SiteVisit";
 import { Solution } from "@/components/Solution";
 import { images } from "@/images";
 
@@ -25,24 +31,12 @@ import { images } from "@/images";
 // word joiner (U+2060) so the suffix never wraps onto a line by itself. Retyping that
 // hyphen drops the joiner, so copy the hyphen from an existing word when editing text.
 
-const signals = [
-  "Meta Ads run செய்கிறோம் / Portal-⁠லிருந்து enquiries வருகிறது.",
-  "எங்கள் leads WhatsApp-⁠க்கு வருகிறது.",
-  "பல projects, பல salespeople manage செய்கிறோம்.",
-  "Leads manually distribute செய்கிறோம்.",
-  "எங்கள் salespeople consistent-⁠ஆ follow-up செய்யவில்லை.",
-  "எந்த leads pending-⁠ல் இருக்கிறது என்று எனக்குத் தெரியவில்லை.",
-  "Transfer செய்யும்போது customer மீண்டும் எல்லாவற்றையும் சொல்ல வேண்டியுள்ளது.",
-  "Site visits miss ஆகிறது.",
-  "Buyers முடிவெடுக்க மாதக்கணக்கில் ஆகிறது.",
-  "எந்த ads உண்மையில் bookings கொண்டு வந்தது என்று தெரியவில்லை.",
-];
-
+// "AI" added to each rule in chat, so it's clear who won't do it
 const safety = [
-  "Price-⁠ஐ invent செய்யாது",
-  "Available இல்லாத unit-⁠ஐ promise செய்யாது",
-  "Unauthorised discount கொடுக்காது",
-  "Salesperson takeover செய்த பிறகு தொடர்ந்து பேசாது",
+  "AI price-⁠ஐ invent செய்யாது",
+  "AI available இல்லாத unit-⁠ஐ promise செய்யாது",
+  "AI unauthorised discount கொடுக்காது",
+  "Salesperson takeover செய்த பிறகு AI தொடர்ந்து பேசாது",
 ];
 
 /* ---------- Page ---------- */
@@ -54,58 +48,60 @@ export default function Home() {
         {/* TEMPORARY palette review tool — remove after final palette is chosen */}
         <PaletteSwitcher />
 
+        {/* attention bar at the very top */}
+        <TopBar />
+
         {/* 1. Hook — PDF hero */}
         <Hero />
 
         {/* 2. Pain — PDF section 2 */}
         <RealProblem />
 
-        {/* 3. The structured journey — revised doc section 5 */}
-        <SalesJourney />
-
-        {/* 4. Solution — revised doc section 6 */}
+        {/* 3. What the AI does for every lead — revised doc section 6. Light like the section above
+            (the dark Sales Journey section between them was removed), so it opens with a divider line. */}
         <NextStep />
 
-        {/* 5. Proof — revised doc section 21 (demo flow) + chat demo */}
+        {/* 4. Proof — revised doc section 21 (demo flow) + chat demo */}
         <Solution />
 
-        {/* 6–8. The buyer's journey, in order — PDF sections 8, 9, 10 */}
-        <SiteVisit />
+        {/* 5–7. The buyer's journey, in order — PDF sections 8, 9, 10 */}
+        {/* HIDDEN for now — remove for good after the final audit: <SiteVisit /> */}
 
-        <Handover />
+        {/* HIDDEN for now — remove for good after the final audit: <Handover /> */}
 
-        <FollowUp />
+        {/* HIDDEN for now — remove for good after the final audit: <FollowUp /> */}
 
-        {/* 9. Objection: "will it replace my team?" — PDF section 11 */}
+        {/* 8. Objection: "will it replace my team?" — PDF section 11 */}
         <SalesTeam />
 
-        {/* 10–12. Owner / manager view — PDF 12, revised doc 14, 15 */}
-        <ManagerVisibility />
+        {/* 9–11. Owner / manager view — PDF 12, revised doc 14, 15 */}
+        {/* HIDDEN for now — remove for good after the final audit: <ManagerVisibility /> */}
 
-        <Pipeline />
+        {/* HIDDEN for now — remove for good after the final audit: <Pipeline /> */}
 
         <Reporting />
 
-        {/* 13–14. Objections: "just a CRM/chatbot?" and "will the AI say something wrong?" — revised doc 18, PDF 14 */}
-        <Differentiation />
+        {/* 12–13. Objections: "just a CRM/chatbot?" and "will the AI say something wrong?" — revised doc 18, PDF 14 */}
+        {/* HIDDEN for now — remove for good after the final audit: <Differentiation /> */}
 
-        <section className="bg-ink px-4 py-16 text-white sm:py-24">
+        {/* light section — the page alternates dark / light */}
+        <section className="bg-paper px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-4xl text-center">
             {/* fluid size on phones so the longest unbroken phrase still fits a 320px screen */}
             <h2 className="text-[clamp(22px,7.2vw,28px)] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
               {/* each phrase kept whole so a line never ends on a lone "உங்கள்" */}
               <span className="whitespace-nowrap">உங்கள் Property Data.</span>{" "}
               <span className="whitespace-nowrap">உங்கள் Prices.</span>{" "}
-              <span className="whitespace-nowrap text-accent">உங்கள் Rules.</span>
+              <span className="whitespace-nowrap text-accent-deep">உங்கள் Rules.</span>
             </h2>
             <ul className="mt-10 grid gap-3 text-left sm:mt-12 sm:grid-cols-2 sm:gap-4">
               {safety.map((s) => (
                 <li
                   key={s}
-                  className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/[0.05] px-4 py-4 font-semibold leading-snug sm:px-5"
+                  className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-4 font-semibold leading-snug shadow-sm sm:px-5"
                 >
                   <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent-deep"
                     aria-hidden
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
@@ -117,45 +113,16 @@ export default function Home() {
               ))}
             </ul>
             <p className="mt-10 font-display text-lg font-bold sm:text-2xl">
-              Rules-⁠உடன் AI. <span className="text-accent">Control உங்கள் team-⁠கிட்டே.</span>
+              Rules-⁠உடன் AI. <span className="text-accent-deep">Control உங்கள் team-⁠கிட்டே.</span>
             </p>
           </div>
         </section>
 
-        {/* 15–16. Qualification + self-recognition — PDF 16, 17 */}
+        {/* 14–15. Qualification + self-recognition — PDF 16, 17 (merged into one section in chat) */}
         <Audiences />
 
-        <section className="bg-ink px-4 py-16 text-white sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="mx-auto max-w-3xl text-center text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-              இவற்றில் ஏதாவது உங்களுக்கு familiar-⁠ஆ இருந்தால்,{" "}
-              <span className="text-accent">iSuite AI உங்களுக்காக.</span>
-            </h2>
-            <ul className="mt-10 grid gap-3 sm:mt-14 md:grid-cols-2 md:gap-4">
-              {signals.map((s) => (
-                <li
-                  key={s}
-                  className="flex items-center gap-3 rounded-2xl rounded-tl-sm border border-white/15 bg-white/[0.05] px-4 py-4 leading-relaxed transition hover:border-accent/50 hover:bg-accent/10 sm:px-5"
-                >
-                  <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent"
-                    aria-hidden
-                  >
-                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12l5 5L20 7" />
-                    </svg>
-                  </span>
-                  <span className="text-white/90">“{s}”</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-12 text-center">
-              <CtaButton motion="pulse" className="w-full sm:w-auto" />
-            </div>
-          </div>
-        </section>
 
-        {/* 17. Last doubts — PDF 21 */}
+        {/* 16. Last doubts — PDF 21 */}
         <Faq />
       </main>
 
@@ -167,13 +134,16 @@ export default function Home() {
           images.ctaBackground ? ({ "--cta-image": `url(${images.ctaBackground})` } as React.CSSProperties) : undefined
         }
       >
-        {/* 18. Final CTA — ICP hook */}
+        {/* 17. Final CTA — ICP hook */}
         <section aria-labelledby="final-cta">
-          <div className="mx-auto max-w-3xl">
-            <h2 id="final-cta" className="text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-              ஒவ்வொரு property enquiry-⁠க்கும் <span className="whitespace-nowrap text-accent">ஒரு next step</span> இருக்க வேண்டும்.
+          {/* wide enough for "Enquiry-⁠யிலிருந்து Booking வரை —" (≈950px) on one line on desktop */}
+          <div className="mx-auto max-w-5xl">
+            <h2 id="final-cta" className="text-balance text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
+              {/* heading chosen in chat (uses the revised doc's "Enquiry-⁠யிலிருந்து Booking வரை") */}
+              <span className="block">Enquiry-⁠யிலிருந்து Booking வரை —</span>
+              <span className="text-accent">ஒரு lead கூட miss ஆகாது.</span>
             </h2>
-            <p className="mt-5 text-base text-white/80 sm:text-lg">அடுத்த enquiry உங்கள் team-⁠க்காக wait பண்ண விடாதீர்கள்.</p>
+            {/* <p className="mt-5 text-base text-white/80 sm:text-lg">அடுத்த enquiry உங்கள் team-⁠க்காக wait பண்ண விடாதீர்கள்.</p> */}
             <CtaButton size="lg" motion="shine" className="mt-8 w-full max-w-[480px] sm:w-auto sm:max-w-none" />
           </div>
         </section>

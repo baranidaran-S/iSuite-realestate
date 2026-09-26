@@ -5,6 +5,15 @@ import { ImageSlot } from "@/components/ImageSlot";
 import { WorksWith } from "@/components/WorksWith";
 import { images } from "@/images";
 
+const points = [
+  "iSuite AI என்பது Real Estate-⁠க்கான AI Sales System.",
+  "ஒவ்வொரு enquiry-⁠க்கும் பதில் அளிக்கிறது.",
+  "சரியான qualification questions கேட்கிறது.",
+  "தேவையான property information-⁠ஐ பகிர்கிறது.",
+  "Site visit-⁠ஐ book செய்கிறது.",
+  "முழு conversation context-⁠உடன் சரியான salesperson-⁠க்கு handover செய்கிறது.",
+];
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink px-4 pb-12 pt-8 text-white sm:pb-16 sm:pt-10">
@@ -24,21 +33,35 @@ export function Hero() {
           className="mx-auto h-12 w-auto sm:h-16"
         />
 
-        {/* Hero copy from the Tamil landing-page PDF (hero section) */}
-        <p className="mt-6 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/80 sm:text-sm">
-          Real Estate-⁠க்கான AI Sales System
-        </p>
 
-        {/* fluid on phones so "Enquiry-⁠யிலிருந்து" (kept whole) fits even a 320px screen */}
-        <h1 className="mt-6 text-[clamp(26px,8vw,34px)] font-extrabold leading-[1.2] sm:text-6xl sm:leading-[1.12]">
-          Property Enquiry-⁠யிலிருந்து <span className="whitespace-nowrap text-accent">Site Visit வரை.</span>
+        {/* new hook chosen in chat (not in the docs). Same highlight style as before: only the key words
+            ("Enquiries", "Site Visits") in the accent colour; from tablet width up it breaks after "Site Visits-⁠ஆக" */}
+        <h1 className="mt-8 text-balance text-[clamp(26px,8vw,34px)] font-extrabold leading-[1.2] sm:mt-10 sm:text-5xl sm:leading-[1.12] lg:text-6xl">
+          <span className="text-accent">Enquiries</span>-⁠ஐ{" "}
+          <span className="whitespace-nowrap">
+            <span className="text-accent">Site Visits</span>-⁠ஆக
+          </span>{" "}
+          <span className="md:block">
+            மாற்றும் <span className="whitespace-nowrap">AI Sales System.</span>
+          </span>
         </h1>
 
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-          iSuite AI ஒவ்வொரு enquiry-⁠க்கும் பதில் அளிக்கிறது, சரியான qualification questions கேட்கிறது, தேவையான
-          property information-⁠ஐ பகிர்கிறது, site visit-⁠ஐ book செய்கிறது, மேலும் முழு conversation context-⁠உடன்
-          சரியான salesperson-⁠க்கு handover செய்கிறது.
-        </p>
+        {/* hero copy from the PDF, split into points; the first point was the pill above the headline */}
+        <ul className="mx-auto mt-6 w-fit max-w-full space-y-2.5 text-left text-base leading-snug text-white/80 sm:text-lg">
+          {points.map((p, idx) => (
+            <li key={p} className="flex items-start gap-3">
+              <span
+                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent sm:mt-1"
+                aria-hidden
+              >
+                <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+              </span>
+              <span className={idx === 0 ? "font-bold text-white" : undefined}>{p}</span>
+            </li>
+          ))}
+        </ul>
 
         {/* CTA */}
         <div className="mt-8 flex flex-col items-center">

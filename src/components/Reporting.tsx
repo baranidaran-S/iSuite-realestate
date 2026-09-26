@@ -1,5 +1,5 @@
 // "Reporting & Business Visibility" — copy from the revised buyer-persona document (section 15).
-// Replaces the Meta Ads section: marketing stays secondary, tied to sales outcomes.
+// Replaces the Meta Ads section. (The doc's "Marketing source → sales outcome" box was removed in chat.)
 
 import { CtaButton } from "@/components/CtaButton";
 
@@ -31,8 +31,9 @@ const metrics = [
   { label: "Revenue visibility", icon: i.trend },
 ];
 
-// LEADS → QUALIFIED → SITE VISITS → OPPORTUNITIES → BOOKINGS → REVENUE
-const flow = ["Leads", "Qualified", "Site Visits", "Opportunities", "Bookings", "Revenue"];
+// The four questions an owner / sales head asks about any lead — from the revised doc's
+// Manager / Owner Visibility section (section 7), added here in chat.
+const questions = ["Who owns the lead?", "What is the current stage?", "What is the next action?", "What is pending?"];
 
 function Icon({ d }: { d: string }) {
   return (
@@ -53,14 +54,36 @@ function Icon({ d }: { d: string }) {
 
 export function Reporting() {
   return (
-    // border-t: follows the (also dark) pipeline section
-    <section className="border-t border-white/10 bg-ink px-4 py-16 text-white sm:py-24">
+    <section className="bg-ink px-4 py-16 text-white sm:py-24">
       <div className="mx-auto max-w-6xl text-center">
         <h2 className="text-balance text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
           Owner / Sales Head பார்க்க வேண்டிய <span className="text-accent">முக்கிய information.</span>
         </h2>
+        {/* revised doc section 7 (Manager / Owner Visibility) */}
+        <p className="mx-auto mt-5 max-w-3xl text-balance text-base leading-relaxed text-white/75 sm:text-lg">
+          ஒவ்வொரு salesperson-⁠ஐயும் call செய்து “இந்த lead status என்ன?” என்று கேட்க வேண்டிய நிலை வேண்டாம்.
+        </p>
 
-        <ul lang="en" className="mt-10 grid grid-cols-2 gap-3 text-left sm:mt-14 sm:grid-cols-3 lg:grid-cols-5">
+        {/* the four questions, answered at a glance */}
+        <ul lang="en" className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-3 sm:mt-12 lg:grid-cols-4">
+          {questions.map((q) => (
+            <li
+              key={q}
+              className="flex items-center gap-3 rounded-2xl border border-accent/40 bg-accent/10 px-4 py-4 text-left font-display text-sm font-bold leading-snug sm:text-base"
+            >
+              <span
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent font-display text-base font-extrabold text-on-accent"
+                aria-hidden
+              >
+                ?
+              </span>
+              {q}
+            </li>
+          ))}
+        </ul>
+
+        <p className="mt-10 font-semibold text-white/80 sm:mt-12">ஒரே view-⁠ல் பார்க்கலாம்:</p>
+        <ul lang="en" className="mt-5 grid grid-cols-2 gap-3 text-left sm:grid-cols-3 lg:grid-cols-5">
           {metrics.map((m) => (
             <li
               key={m.label}
@@ -74,39 +97,13 @@ export function Reporting() {
           ))}
         </ul>
 
-        {/* marketing tied to sales outcomes */}
-        <div className="mx-auto mt-10 max-w-5xl rounded-3xl border border-white/10 bg-white/[0.04] px-5 py-7 sm:mt-12 sm:px-8">
-          <p className="font-semibold text-white/80">Marketing source-⁠ஐ sales outcome-⁠உடன் connect செய்யலாம்:</p>
-          {/* one row on desktop; each arrow leads into its step, so a wrapped line
-              starts "→ STEP" instead of ending on a lone arrow */}
-          <p lang="en" className="mt-5 flex flex-wrap justify-center gap-x-2 gap-y-2 font-display text-sm font-bold uppercase sm:text-base">
-            {flow.map((f, idx) => {
-              const last = idx === flow.length - 1;
-              return (
-                <span key={f} className="flex items-center gap-2 whitespace-nowrap">
-                  {idx > 0 && (
-                    <span className="text-accent" aria-hidden>
-                      →
-                    </span>
-                  )}
-                  <span
-                    className={`rounded-full px-3.5 py-1.5 ${
-                      last ? "bg-accent text-on-accent" : "border border-white/15 bg-white/[0.06]"
-                    }`}
-                  >
-                    {f}
-                  </span>
-                </span>
-              );
-            })}
-          </p>
-          <p lang="en" className="mt-6 font-display text-lg font-bold sm:text-xl">
-            <span className="text-white/60">Focus:</span>{" "}
-            <span className="text-accent">“Which leads moved through the sales process?”</span>
-          </p>
-        </div>
 
-        <div className="mt-12 text-center">
+        <p className="mx-auto mt-10 max-w-3xl text-balance font-display text-lg font-bold leading-snug sm:text-2xl">
+          இந்த visibility, management team-⁠க்கு{" "}
+          <span className="text-accent">sales process-⁠ஐ control செய்ய உதவும்.</span>
+        </p>
+
+        <div className="mt-10 text-center">
           <CtaButton motion="wiggle" className="w-full sm:w-auto" />
         </div>
       </div>
