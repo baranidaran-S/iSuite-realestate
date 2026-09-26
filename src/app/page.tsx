@@ -14,7 +14,6 @@ import { Hero } from "@/components/Hero";
 // HIDDEN for now (see page below) — remove for good after the final audit
 // import { ManagerVisibility } from "@/components/ManagerVisibility";
 import { NextStep } from "@/components/NextStep";
-import { PaletteSwitcher } from "@/components/PaletteSwitcher";
 // HIDDEN for now (see page below) — remove for good after the final audit
 // import { Pipeline } from "@/components/Pipeline";
 import { RealProblem } from "@/components/RealProblem";
@@ -45,9 +44,6 @@ export default function Home() {
   return (
     <>
       <main className="reveal-sections overflow-x-clip">
-        {/* TEMPORARY palette review tool — remove after final palette is chosen */}
-        <PaletteSwitcher />
-
         {/* attention bar at the very top */}
         <TopBar />
 

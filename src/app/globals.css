@@ -3,11 +3,11 @@
 /* =====================================================================
    COLOUR PALETTE — change the hex values here, the whole page updates.
    ===================================================================== */
-/* Not "inline": utilities reference these as CSS variables, so the palette
-   switcher can override them at runtime. */
+/* Not "inline": utilities reference these as CSS variables, so changing a value
+   here recolours everything that uses it. */
 @theme {
   /* --- Brand / backgrounds --- */
-  /* Final palette: Charcoal + Gold (palette 5 in the review tool) */
+  /* Final palette: Charcoal + Gold */
   --color-ink: #16181d;         /* dark background (hero, dark sections) + main heading text */
   --color-ink-soft: #23262e;    /* lighter dark shade, used in gradients */
   --color-paper: #f7f5f0;       /* light section background */

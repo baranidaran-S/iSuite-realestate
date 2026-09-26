@@ -67,7 +67,7 @@ const MESSENGER_BOLT =
 function TabIcon({ name }: { name: string }) {
   if (name === "Messenger") {
     return (
-      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden>
+      <svg viewBox="0 0 24 24" className="h-6 w-6 sm:h-4 sm:w-4" aria-hidden>
         <path d={MESSENGER_BUBBLE} fill="#0084ff" />
         <path d={MESSENGER_BOLT} fill="#fff" />
       </svg>
@@ -78,7 +78,7 @@ function TabIcon({ name }: { name: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-4 w-4"
+      className="h-6 w-6 sm:h-4 sm:w-4"
       // the Website mark's light grey would vanish on the white (selected) button
       style={{ color: name === "Website" ? "currentColor" : c.color }}
       fill={c.fill ? "currentColor" : "none"}
@@ -235,12 +235,13 @@ export function ChatDemo() {
 
   return (
     <div ref={rootRef} className="mx-auto w-full max-w-[560px] text-left">
-      {/* app switcher — 2 × 2 on phones, one row from tablet width up */}
+      {/* app switcher — phones: one row of round logo buttons (names hidden, still read by screen
+          readers); from tablet width up: pills with logo + name */}
       <div
         role="group"
         aria-label="Show the chat as"
         lang="en"
-        className="relative mx-auto grid max-w-[360px] grid-cols-2 gap-2 sm:flex sm:max-w-none sm:justify-center"
+        className="relative flex justify-center gap-3 sm:gap-2"
       >
         {platforms.map((x) => {
           const on = x.id === platformId;
@@ -250,12 +251,13 @@ export function ChatDemo() {
               type="button"
               aria-pressed={on}
               onClick={() => choose(x.id)}
-              className={`flex items-center justify-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold transition sm:text-sm ${
+              title={x.name}
+              className={`flex h-12 w-12 items-center justify-center gap-1.5 rounded-full border text-sm font-bold transition sm:h-auto sm:w-auto sm:px-3 sm:py-1.5 ${
                 on ? "border-white bg-white text-ink shadow-lg" : "border-white/15 bg-white/[0.06] text-white/80 hover:bg-white/10"
               }`}
             >
               <TabIcon name={x.name} />
-              {x.name}
+              <span className="sr-only sm:not-sr-only">{x.name}</span>
             </button>
           );
         })}
