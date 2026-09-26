@@ -22,7 +22,7 @@ const palettes: Palette[] = [
   { id: "2", name: "Navy + Green (current)", ink: "#0b1b33", inkSoft: "#13294b", paper: "#f6f8fb", accent: "#2bd97c", accentDark: "#1fbf69", accentDeep: "#087a43", onAccent: "#0b1b33" },
   { id: "3", name: "Navy + Coral", ink: "#0b1b33", inkSoft: "#15294a", paper: "#fff6f2", accent: "#ff6b4a", accentDark: "#f0502c", accentDeep: "#d9431f", onAccent: "#ffffff" },
   { id: "4", name: "Navy + Electric Cyan", ink: "#081a33", inkSoft: "#10284d", paper: "#f0f7fb", accent: "#22c3ee", accentDark: "#0ea5cf", accentDeep: "#0284a8", onAccent: "#081a33" },
-  { id: "5", name: "Charcoal + Gold", ink: "#16181d", inkSoft: "#23262e", paper: "#f7f5f0", accent: "#e9b949", accentDark: "#d19e2a", accentDeep: "#9a6f0b", onAccent: "#16181d" },
+  { id: "5", name: "Charcoal + Gold", ink: "#16181d", inkSoft: "#23262e", paper: "#f7f5f0", accent: "#e9b949", accentDark: "#d19e2a", accentDeep: "#8c6509", onAccent: "#16181d" },
   { id: "11", name: "Slate Graphite + Lime", ink: "#1b2230", inkSoft: "#273041", paper: "#f3f5f8", accent: "#b8f34a", accentDark: "#a3de2f", accentDeep: "#4d7c0f", onAccent: "#1b2230" },
   { id: "13", name: "Midnight Indigo + Amber", ink: "#1e1b4b", inkSoft: "#2e2a6b", paper: "#f5f5fb", accent: "#fbbf24", accentDark: "#e5a50a", accentDeep: "#b45309", onAccent: "#1e1b4b" },
   { id: "14", name: "Jet Black + Orange", ink: "#0d0d0d", inkSoft: "#1c1c1c", paper: "#f6f5f3", accent: "#ff7a1a", accentDark: "#eb6300", accentDeep: "#c2410c", onAccent: "#0d0d0d" },
@@ -60,7 +60,7 @@ function Swatch({ p, active, onClick }: { p: Palette; active: boolean; onClick: 
   );
 }
 
-const DEFAULT_ID = "2";
+const DEFAULT_ID = "5"; // Charcoal + Gold — the final palette (matches the colours in globals.css)
 const CHANGE_EVENT = "isuite-palette-change";
 
 function readSaved(): string {

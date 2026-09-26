@@ -7,16 +7,17 @@
    switcher can override them at runtime. */
 @theme {
   /* --- Brand / backgrounds --- */
-  --color-ink: #0b1b33;         /* dark background (hero, dark sections) + main heading text */
-  --color-ink-soft: #13294b;    /* lighter dark shade, used in gradients */
-  --color-paper: #f6f8fb;       /* light section background */
+  /* Final palette: Charcoal + Gold (palette 5 in the review tool) */
+  --color-ink: #16181d;         /* dark background (hero, dark sections) + main heading text */
+  --color-ink-soft: #23262e;    /* lighter dark shade, used in gradients */
+  --color-paper: #f7f5f0;       /* light section background */
   --color-surface: #ffffff;     /* page / card background */
 
   /* --- Accent (buttons, highlights, icons) --- */
-  --color-accent: #2bd97c;      /* main accent: buttons, highlighted words, icons (bright, for dark navy) */
-  --color-accent-dark: #1fbf69; /* button hover (slightly darker accent) */
-  --color-accent-deep: #087a43; /* green TEXT on light/white backgrounds — dark enough for 4.5:1 contrast on small text */
-  --color-on-accent: #0b1b33;   /* text colour ON the accent (use dark text if accent is light, e.g. gold) */
+  --color-accent: #e9b949;      /* main accent: buttons, highlighted words, icons (bright gold, for the dark sections) */
+  --color-accent-dark: #d19e2a; /* button hover (slightly darker accent) */
+  --color-accent-deep: #8c6509; /* gold TEXT on light/white backgrounds — 4.8:1 on paper, 5.3:1 on white (passes 4.5:1 for small text) */
+  --color-on-accent: #16181d;   /* text colour ON the accent (dark text, since gold is light) */
 
   /* --- Text & borders --- */
   --color-muted: #5b6b82;       /* grey body text */
@@ -50,7 +51,7 @@ body {
   color: var(--color-ink);
 }
 
-/* Keyboard focus: a dark inner band + green outer band, so the ring stays
+/* Keyboard focus: a dark inner band + accent (gold) outer band, so the ring stays
    visible on both the light and the dark sections. */
 :where(a, button):focus-visible {
   outline: 3px solid var(--color-accent);
@@ -164,7 +165,7 @@ summary {
   animation: cta-wiggle 3s ease-in-out 0.4s infinite;
 }
 
-/* 3. pulse — grows a little while a green ring ripples out */
+/* 3. pulse — grows a little while an accent ring ripples out */
 @keyframes cta-pulse {
   0%,
   24%,
