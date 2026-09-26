@@ -47,10 +47,11 @@ export function Differentiation() {
   return (
     <section className="bg-paper px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-5xl text-center">
-        {/* Tamil heading from the landing-page PDF (same meaning as the revised doc's English one) */}
-        <h2 className="text-[28px] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
-          WhatsApp chatbot-⁠ஐ விட அதிகம்.
-          <span className="block text-accent-deep">CRM-⁠ஐ விட அதிகம்.</span>
+        {/* new wording chosen in chat (not in the docs) — replaces the PDF's "WhatsApp chatbot-⁠ஐ விட அதிகம். CRM-⁠ஐ விட அதிகம்.";
+            fluid size on phones so "enquiry-⁠யிலிருந்து" (one unbreakable word) fits a 320px screen */}
+        <h2 className="text-balance text-[clamp(24px,7.5vw,28px)] font-extrabold leading-[1.3] sm:text-5xl sm:leading-[1.2]">
+          ஏற்கனவே CRM அல்லது chatbot இருக்கிறதா?
+          <span className="mt-2 block text-accent-deep">iSuite AI enquiry-⁠யிலிருந்து booking வரை sale-⁠ஐ நகர்த்துகிறது.</span>
         </h2>
 
         {/* one job each */}

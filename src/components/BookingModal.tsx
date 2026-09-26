@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { preconnect } from "react-dom";
 
 import { site } from "@/config";
 
@@ -13,6 +14,10 @@ export function openBooking() {
 }
 
 export function BookingModal() {
+  // Warm up the connection to the CRM (DNS + TLS) while the visitor reads the page, so the
+  // form starts downloading straight away on the first click. Downloads nothing itself.
+  preconnect(new URL(site.bookingUrl).origin);
+
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   // the iframe is only created on the first open (keeps the landing page light),
